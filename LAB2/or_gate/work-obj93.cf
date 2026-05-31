@@ -1,0 +1,7 @@
+v 4
+file . "or_gate_test.vhdl" "c68de2eb6a5f8eb02378f2579742531b6330debe" "20260526095851.934":
+  entity or_gate_test at 1( 0) + 0 on 13;
+  architecture test of or_gate_test at 4( 45) + 0 on 14;
+file . "or_gate.vhdl" "d842a26ee93ab76d0cadb520dcfa04983119dc76" "20260526095835.964":
+  entity or_gate at 1( 0) + 0 on 11;
+  architecture behavior of or_gate at 9( 118) + 0 on 12;

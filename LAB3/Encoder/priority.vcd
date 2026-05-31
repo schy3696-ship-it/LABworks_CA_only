@@ -1,0 +1,48 @@
+$date
+  Thu May 28 14:57:43 2026
+$end
+$version
+  GHDL v0
+$end
+$timescale
+  1 fs
+$end
+$scope module standard $end
+$upscope $end
+$scope module std_logic_1164 $end
+$upscope $end
+$scope module tb_priority_encoder $end
+$var reg 4 ! d_tb[3:0] $end
+$var reg 2 " y_tb[1:0] $end
+$scope module uut $end
+$var reg 4 # d[3:0] $end
+$var reg 2 $ y[1:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+b0001 !
+b00 "
+b0001 #
+b00 $
+#20000000
+b0010 !
+b01 "
+b0010 #
+b01 $
+#40000000
+b0100 !
+b10 "
+b0100 #
+b10 $
+#60000000
+b1000 !
+b11 "
+b1000 #
+b11 $
+#80000000
+b1010 !
+b1010 #
+#100000000
+b1111 !
+b1111 #

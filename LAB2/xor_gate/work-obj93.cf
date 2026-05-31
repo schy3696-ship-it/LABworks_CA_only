@@ -1,0 +1,7 @@
+v 4
+file . "xor_gate_test.vhdl" "09ca4c58e9ce7ffcb2dc38a97f4bb9c2241fb52e" "20260526102539.680":
+  entity xor_gate_test at 1( 0) + 0 on 13;
+  architecture test of xor_gate_test at 4( 47) + 0 on 14;
+file . "xor_gate.vhdl" "5f691534ba8f048f9c11c27c990ee99a942b8eaa" "20260526102528.211":
+  entity xor_gate at 1( 0) + 0 on 11;
+  architecture behavior of xor_gate at 9( 120) + 0 on 12;
