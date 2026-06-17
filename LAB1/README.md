@@ -1,0 +1,65 @@
+# LAB 1: Introduction to VHDL Programming and Open-Source Simulation Environment
+
+## Objective
+To understand the basics of VHDL programming and explore open-source simulation tools used for digital system design and verification.
+
+---
+
+## Theory
+
+### What is VHDL?
+VHDL (VHSIC Hardware Description Language) is a hardware description language used to model digital circuits. It allows designers to describe the behavior and structure of electronic systems.
+
+VHDL is widely used in:
+- FPGA design
+- Digital system simulation
+- Hardware modeling
+
+---
+
+### Basic Features of VHDL
+- Supports concurrent and sequential execution
+- Strong typing for signals and variables
+- Used for both design and simulation
+- Helps in hardware verification before physical implementation
+
+---
+
+### Open-Source Simulation Environment
+Simulation tools are used to test VHDL code before implementing it in hardware.
+
+Common open-source tools include:
+- **GHDL** → VHDL compiler and simulator
+- **GTKWave** → Waveform viewer
+- **ModelSim (trial/educational use)** → Popular simulation tool
+
+These tools help in:
+- Checking correctness of VHDL code
+- Viewing signal waveforms
+- Debugging digital circuits
+
+---
+
+### Basic VHDL Structure
+Every VHDL program has two main parts:
+
+1. **Entity** → Defines inputs and outputs  
+2. **Architecture** → Defines internal behavior
+
+Example:
+```vhdl id="lab1example"
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity example is
+    Port (
+        A : in STD_LOGIC;
+        B : out STD_LOGIC
+    );
+end example;
+
+architecture Behavioral of example is
+begin
+    B <= A;
+end Behavioral;
+```
