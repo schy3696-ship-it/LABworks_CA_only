@@ -1,0 +1,70 @@
+$date
+  Wed Jul 01 11:37:46 2026
+$end
+$version
+  GHDL v0
+$end
+$timescale
+  1 fs
+$end
+$scope module standard $end
+$upscope $end
+$scope module std_logic_1164 $end
+$upscope $end
+$scope module tb_mux_4to1 $end
+$var reg 1 ! i0 $end
+$var reg 1 " i1 $end
+$var reg 1 # i2 $end
+$var reg 1 $ i3 $end
+$var reg 1 % s0 $end
+$var reg 1 & s1 $end
+$var reg 1 ' y $end
+$scope module dut $end
+$var reg 1 ( i0 $end
+$var reg 1 ) i1 $end
+$var reg 1 * i2 $end
+$var reg 1 + i3 $end
+$var reg 1 , s0 $end
+$var reg 1 - s1 $end
+$var reg 1 . y $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+1!
+0"
+0#
+0$
+0%
+0&
+1'
+1(
+0)
+0*
+0+
+0,
+0-
+1.
+#10000000
+0!
+1"
+1%
+0(
+1)
+1,
+#20000000
+0"
+1#
+0%
+1&
+0)
+1*
+0,
+1-
+#30000000
+0#
+1$
+1%
+0*
+1+
+1,

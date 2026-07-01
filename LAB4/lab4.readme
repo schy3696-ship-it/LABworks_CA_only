@@ -1,0 +1,124 @@
+LAB 4: VHDL Code for Multiplexer and Demultiplexer
+
+OBJECTIVE
+---------
+1. To understand the operation of multiplexers and demultiplexers.
+2. To design and implement a 4-to-1 Multiplexer and a 1-to-4 Demultiplexer using VHDL.
+3. To simulate these combinational circuits using GHDL and verify their operation.
+4. To analyze simulation waveforms using GTKWave.
+
+THEORY
+------
+Multiplexer (MUX)
+A multiplexer is a combinational circuit that selects one of many input signals and routes it to a single output line. The selection of the input is controlled by a set of select lines.
+A 4-to-1 Multiplexer has 4 data inputs (I0, I1, I2, I3), 2 select lines (S1, S0), and 1 output (Y).
+Logical function:
+Y = I0 when S1 S0 = "00"
+Y = I1 when S1 S0 = "01"
+Y = I2 when S1 S0 = "10"
+Y = I3 when S1 S0 = "11"
+
+Demultiplexer (DEMUX)
+A demultiplexer performs the reverse operation of a multiplexer. It takes a single input line and routes it to one of several output lines based on select lines.
+A 1-to-4 Demultiplexer has 1 data input (D), 2 select lines (S1, S0), and 4 outputs (Y0, Y1, Y2, Y3).
+Logical function:
+Y0 = D when S1 S0 = "00" (others '0')
+Y1 = D when S1 S0 = "01" (others '0')
+Y2 = D when S1 S0 = "10" (others '0')
+Y3 = D when S1 S0 = "11" (others '0')
+
+VHDL CODES
+----------
+
+1. 4-to-1 Multiplexer (mux_4to1.vhd)
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity MUX_4TO1 is
+    Port (
+        I0  : in  STD_LOGIC;
+        I1  : in  STD_LOGIC;
+        I2  : in  STD_LOGIC;
+        I3  : in  STD_LOGIC;
+        S0  : in  STD_LOGIC;
+        S1  : in  STD_LOGIC;
+        Y   : out STD_LOGIC
+    );
+end entity MUX_4TO1;
+
+architecture Behavioral of MUX_4TO1 is
+begin
+    process(I0, I1, I2, I3, S0, S1)
+        variable sel : STD_LOGIC_VECTOR(1 downto 0);
+    begin
+        sel := S1 & S0;
+        case sel is
+            when "00" =>
+                Y <= I0;
+            when "01" =>
+                Y <= I1;
+            when "10" =>
+                Y <= I2;
+            when "11" =>
+                Y <= I3;
+            when others =>
+                Y <= '0';
+        end case;
+    end process;
+end architecture Behavioral;
+
+2. 1-to-4 Demultiplexer (demux_1to4.vhd)
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity DEMUX_1TO4 is
+    Port (
+        D  : in  STD_LOGIC;
+        S0 : in  STD_LOGIC;
+        S1 : in  STD_LOGIC;
+        Y0 : out STD_LOGIC;
+        Y1 : out STD_LOGIC;
+        Y2 : out STD_LOGIC;
+        Y3 : out STD_LOGIC
+    );
+end entity DEMUX_1TO4;
+
+architecture Behavioral of DEMUX_1TO4 is
+begin
+    process(D, S0, S1)
+        variable sel : STD_LOGIC_VECTOR(1 downto 0);
+    begin
+        -- Default outputs
+        Y0 <= '0';
+        Y1 <= '0';
+        Y2 <= '0';
+        Y3 <= '0';
+
+        sel := S1 & S0;
+        case sel is
+            when "00" =>
+                Y0 <= D;
+            when "01" =>
+                Y1 <= D;
+            when "10" =>
+                Y2 <= D;
+            when "11" =>
+                Y3 <= D;
+            when others =>
+                null;
+        end case;
+    end process;
+end architecture Behavioral;
+
+
+DISCUSSION
+----------
+In this experiment, a 4-to-1 Multiplexer and a 1-to-4 Demultiplexer were successfully designed using VHDL and simulated using GHDL. The designs utilize behavioral modeling with a process and case statement to implement selection logic.
+
+A compiler warning regarding overloading of the concatenation operator (&) on STD_LOGIC inputs in GHDL was resolved by declaring a process variable 'sel' of type STD_LOGIC_VECTOR(1 downto 0). This variable explicitly holds the concatenated value before evaluating the case statement.
+
+The testbenches successfully verified both circuits. The simulation waveforms observed in GTKWave demonstrated exact alignment with the theoretical truth tables of the multiplexer and demultiplexer.
+
+CONCLUSION
+----------
+The multiplexer and demultiplexer circuits were successfully implemented and simulated using VHDL. The simulation results matched the expected logic functions for all selector input combinations. This experiment enhanced our understanding of routing logic circuits and verified VHDL design flows utilizing variables, concatenation, and case statements.
