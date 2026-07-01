@@ -1,0 +1,110 @@
+LAB 5: VHDL Code for 2-bit Magnitude Comparator
+
+OBJECTIVE
+---------
+1. To understand the operation of magnitude comparators.
+2. To design and implement a 2-bit Magnitude Comparator using VHDL.
+3. To simulate this combinational circuit using GHDL and verify its operation.
+4. To analyze simulation waveforms using GTKWave.
+
+THEORY
+------
+A magnitude comparator is a combinational circuit that compares two numbers, A and B, and determines their relative magnitudes.
+A 2-bit Magnitude Comparator compares two 2-bit binary inputs A (A1 A0) and B (B1 B0) and activates one of the three outputs based on the comparison:
+- EQ = '1' when A = B (others '0')
+- GT = '1' when A > B (others '0')
+- LT = '1' when A < B (others '0')
+
+VHDL CODES
+----------
+
+1. 2-bit Magnitude Comparator (comparator_2bit.vhd)
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+entity COMPARATOR_2BIT is
+    Port (
+        A  : in  STD_LOGIC_VECTOR(1 downto 0);
+        B  : in  STD_LOGIC_VECTOR(1 downto 0);
+        EQ : out STD_LOGIC;  -- A = B
+        GT : out STD_LOGIC;  -- A > B
+        LT : out STD_LOGIC   -- A < B
+    );
+end entity COMPARATOR_2BIT;
+
+architecture Behavioral of COMPARATOR_2BIT is
+begin
+    process(A, B)
+    begin
+        if unsigned(A) = unsigned(B) then
+            EQ <= '1';
+            GT <= '0';
+            LT <= '0';
+
+        elsif unsigned(A) > unsigned(B) then
+            EQ <= '0';
+            GT <= '1';
+            LT <= '0';
+
+        else
+            EQ <= '0';
+            GT <= '0';
+            LT <= '1';
+        end if;
+    end process;
+end architecture Behavioral;
+
+2. Testbench (tb_comparator_2bit.vhd)
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+entity TB_COMPARATOR_2BIT is
+end entity TB_COMPARATOR_2BIT;
+
+architecture Simulation of TB_COMPARATOR_2BIT is
+
+    signal A  : STD_LOGIC_VECTOR(1 downto 0) := "00";
+    signal B  : STD_LOGIC_VECTOR(1 downto 0) := "00";
+    signal EQ : STD_LOGIC;
+    signal GT : STD_LOGIC;
+    signal LT : STD_LOGIC;
+
+begin
+
+    DUT : entity work.COMPARATOR_2BIT
+        port map (
+            A  => A,
+            B  => B,
+            EQ => EQ,
+            GT => GT,
+            LT => LT
+        );
+
+    STIMULUS : process
+    begin
+        -- Loop through all possible combinations of A and B (16 cases)
+        for i in 0 to 3 loop
+            for j in 0 to 3 loop
+                A <= std_logic_vector(to_unsigned(i, 2));
+                B <= std_logic_vector(to_unsigned(j, 2));
+                wait for 10 ns;
+            end loop;
+        end loop;
+
+        wait;
+    end process STIMULUS;
+
+end architecture Simulation;
+
+
+DISCUSSION
+----------
+In this experiment, a 2-bit Magnitude Comparator was successfully designed using VHDL and simulated using GHDL. The design utilizes behavioral modeling with a process block. Inside the process, type casting to unsigned (using the IEEE.NUMERIC_STD.ALL library) is performed on the input STD_LOGIC_VECTOR vectors, allowing for direct numerical comparison (=, >, and <) in the if-elsif-else control structure.
+
+The testbench systematically evaluated all 16 possible input state combinations by nesting loops that generated inputs 00 to 11 for both A and B. The simulation waveforms observed in GTKWave demonstrated exact alignment with the theoretical truth table.
+
+CONCLUSION
+----------
+The 2-bit Magnitude Comparator circuit was successfully designed, simulated, and verified in VHDL. The simulation outputs correctly determined equality (A = B), greater than (A > B), and less than (A < B) for all combinations of the inputs. This experiment reinforced how numeric type conversions and relational operations are described in VHDL.
