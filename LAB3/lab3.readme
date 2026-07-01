@@ -1,0 +1,94 @@
+LAB 3: VHDL Code for Combinational Circuit (Encoder and Decoder)
+
+OBJECTIVE
+---------
+1. To design and implement combinational circuits such as Encoder and Decoder using VHDL.
+2. To verify their functionality through simulation.
+3. To understand the operation of priority encoders and decoders.
+4. To analyze simulation waveforms using GTKWave.
+
+THEORY
+------
+Combinational Circuits
+Combinational circuits are digital circuits whose output depends only on the current input values, without any memory element.
+
+Encoder
+An encoder is a combinational circuit that converts multiple input lines into a smaller number of output lines.
+Example: 4-to-2 Priority Encoder
+A 4-to-2 priority encoder converts 4 input lines into 2 output lines, where inputs have priority levels.
+If multiple inputs are active, the output represents the input with the highest priority.
+
+Decoder
+A decoder is a combinational circuit that converts binary input into multiple output lines.
+Example: 2-to-4 Decoder
+A 2-to-4 decoder converts 2 input lines into 4 output lines.
+
+VHDL CODES
+----------
+
+1. Priority Encoder (priority_encoder.vhd)
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity PRIORITY_ENCODER is
+    Port (
+        D : in STD_LOGIC_VECTOR(3 downto 0);
+        Y : out STD_LOGIC_VECTOR(1 downto 0)
+    );
+end PRIORITY_ENCODER;
+
+architecture Behavioral of PRIORITY_ENCODER is
+begin
+    process(D)
+    begin
+        if D(3) = '1' then
+            Y <= "11";
+        elsif D(2) = '1' then
+            Y <= "10";
+        elsif D(1) = '1' then
+            Y <= "01";
+        elsif D(0) = '1' then
+            Y <= "00";
+        else
+            Y <= "00";
+        end if;
+    end process;
+end Behavioral;
+
+2. Decoder 2-to-4 (decoder_2to4.vhd)
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity DECODER_2TO4 is
+    Port (
+        A : in STD_LOGIC_VECTOR(1 downto 0);
+        Y : out STD_LOGIC_VECTOR(3 downto 0)
+    );
+end DECODER_2TO4;
+
+architecture Behavioral of DECODER_2TO4 is
+begin
+    process(A)
+    begin
+        case A is
+            when "00" => Y <= "0001";
+            when "01" => Y <= "0010";
+            when "10" => Y <= "0100";
+            when "11" => Y <= "1000";
+            when others => Y <= "0000";
+        end case;
+    end process;
+end Behavioral;
+
+
+DISCUSSION
+----------
+In this laboratory, various combinational circuits were designed and implemented using VHDL. Unlike sequential circuits, combinational circuits produce outputs that depend only on the current input values and do not require memory elements or clock signals.
+
+The designed circuits were simulated using an open-source VHDL simulator, and the outputs were verified using a testbench. The simulation waveforms matched the expected truth tables and logical behavior of the implemented combinational circuits. This experiment provided practical experience in writing VHDL code, creating testbenches, and analyzing simulation waveforms using GTKWave.
+
+Through this experiment, the relationship between Boolean logic and hardware implementation was clearly understood. The use of VHDL simplified the process of describing, simulating, and verifying digital circuits before hardware implementation.
+
+CONCLUSION
+----------
+The combinational circuits were successfully implemented and simulated using VHDL. The simulation results confirmed that the outputs were generated correctly for all input combinations according to their respective logical functions. This laboratory strengthened the understanding of combinational logic design, VHDL programming, testbench development, and waveform analysis using open-source simulation tools.
