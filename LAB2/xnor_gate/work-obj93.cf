@@ -1,7 +1,7 @@
 v 4
-file . "xnor_gate_test.vhdl" "c6de2718548fc5d69b8edf22b20b993fd1ddfc85" "20260526102902.596":
-  entity xnor_gate_test at 1( 0) + 0 on 13;
-  architecture test of xnor_gate_test at 4( 49) + 0 on 14;
-file . "xnor_gate.vhdl" "2793ab2c441008ef2afd554720b7c8d0b23b822e" "20260526102849.775":
-  entity xnor_gate at 1( 0) + 0 on 11;
-  architecture behavior of xnor_gate at 9( 122) + 0 on 12;
+file . "xnor_gate.vhdl" "2793ab2c441008ef2afd554720b7c8d0b23b822e" "20260701044432.748":
+  entity xnor_gate at 1( 0) + 0 on 15;
+  architecture behavior of xnor_gate at 9( 122) + 0 on 16;
+file . "xnor_gate_test.vhdl" "c6de2718548fc5d69b8edf22b20b993fd1ddfc85" "20260701044432.749":
+  entity xnor_gate_test at 1( 0) + 0 on 17;
+  architecture test of xnor_gate_test at 4( 49) + 0 on 18;

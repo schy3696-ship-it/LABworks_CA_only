@@ -1,7 +1,7 @@
 v 4
-file . "nand_gate_test.vhdl" "e93a7d88bb476582df7b0691697029e92c2b9d8c" "20260526095227.726":
-  entity nand_gate_test at 1( 0) + 0 on 13;
-  architecture test of nand_gate_test at 4( 49) + 0 on 14;
-file . "nand_gate.vhdl" "f1bbc7658c9d9098a93899114746bda056156f6e" "20260526095215.518":
-  entity nand_gate at 1( 0) + 0 on 11;
-  architecture behavior of nand_gate at 9( 122) + 0 on 12;
+file . "nand_gate.vhdl" "f1bbc7658c9d9098a93899114746bda056156f6e" "20260701044413.136":
+  entity nand_gate at 1( 0) + 0 on 15;
+  architecture behavior of nand_gate at 9( 122) + 0 on 16;
+file . "nand_gate_test.vhdl" "e93a7d88bb476582df7b0691697029e92c2b9d8c" "20260701044413.136":
+  entity nand_gate_test at 1( 0) + 0 on 17;
+  architecture test of nand_gate_test at 4( 49) + 0 on 18;

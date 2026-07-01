@@ -1,7 +1,7 @@
 v 4
-file . "nor_gate_test.vhdl" "82f5c6c899e81e687d15863239b488675d3dd61d" "20260526102154.526":
-  entity nor_gate_test at 1( 0) + 0 on 13;
-  architecture test of nor_gate_test at 4( 47) + 0 on 14;
-file . "nor_gate.vhdl" "64b1a07fad02c8dd391f241000635f9ea81fbe52" "20260526102143.387":
-  entity nor_gate at 1( 0) + 0 on 11;
-  architecture behavior of nor_gate at 9( 120) + 0 on 12;
+file . "nor_gate.vhdl" "64b1a07fad02c8dd391f241000635f9ea81fbe52" "20260701044417.341":
+  entity nor_gate at 1( 0) + 0 on 15;
+  architecture behavior of nor_gate at 9( 120) + 0 on 16;
+file . "nor_gate_test.vhdl" "82f5c6c899e81e687d15863239b488675d3dd61d" "20260701044417.342":
+  entity nor_gate_test at 1( 0) + 0 on 17;
+  architecture test of nor_gate_test at 4( 47) + 0 on 18;
