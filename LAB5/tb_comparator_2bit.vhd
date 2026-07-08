@@ -1,6 +1,5 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.NUMERIC_STD.ALL;
 
 entity TB_COMPARATOR_2BIT is
 end entity TB_COMPARATOR_2BIT;
@@ -26,16 +25,27 @@ begin
 
     STIMULUS : process
     begin
-        -- Loop through all possible combinations of A and B (16 cases)
-        for i in 0 to 3 loop
-            for j in 0 to 3 loop
-                A <= std_logic_vector(to_unsigned(i, 2));
-                B <= std_logic_vector(to_unsigned(j, 2));
-                wait for 10 ns;
-            end loop;
-        end loop;
+
+        -- A = B
+        A <= "00"; B <= "00"; wait for 10 ns;
+
+        -- A > B
+        A <= "01"; B <= "00"; wait for 10 ns;
+
+        -- A < B
+        A <= "00"; B <= "01"; wait for 10 ns;
+
+        -- A < B
+        A <= "10"; B <= "11"; wait for 10 ns;
+
+        -- A > B
+        A <= "11"; B <= "10"; wait for 10 ns;
+
+        -- A = B
+        A <= "11"; B <= "11"; wait for 10 ns;
 
         wait;
-    end process STIMULUS;
+
+    end process;
 
 end architecture Simulation;

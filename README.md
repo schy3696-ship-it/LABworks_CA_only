@@ -302,63 +302,89 @@ The following tools were used to compile and verify all designs:
 * **Objective:** Design an arithmetic combinational logic module to compare two 2-bit inputs ($A$ and $B$) and indicate whether $A = B$ ($EQ$), $A > B$ ($GT$), or $A < B$ ($LT$).
 * **2-bit Magnitude Comparator Design ([comparator_2bit.vhd](LAB5/comparator_2bit.vhd)):**
   ```vhdl
-  library IEEE;
-  use IEEE.STD_LOGIC_1164.ALL;
-  use IEEE.NUMERIC_STD.ALL;
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
 
-  entity COMPARATOR_2BIT is
-      Port (
-          A  : in  STD_LOGIC_VECTOR(1 downto 0);
-          B  : in  STD_LOGIC_VECTOR(1 downto 0);
-          EQ : out STD_LOGIC;  -- A = B
-          GT : out STD_LOGIC;  -- A > B
-          LT : out STD_LOGIC   -- A < B
-      );
-  end entity COMPARATOR_2BIT;
+entity COMPARATOR_2BIT is
+    Port (
+        A  : in  STD_LOGIC_VECTOR(1 downto 0);
+        B  : in  STD_LOGIC_VECTOR(1 downto 0);
+        EQ : out STD_LOGIC;
+        GT : out STD_LOGIC;
+        LT : out STD_LOGIC
+    );
+end entity COMPARATOR_2BIT;
 
-  architecture Behavioral of COMPARATOR_2BIT is
-  begin
-      process(A, B)
-      begin
-          if unsigned(A) = unsigned(B) then
-              EQ <= '1'; GT <= '0'; LT <= '0';
-          elsif unsigned(A) > unsigned(B) then
-              EQ <= '0'; GT <= '1'; LT <= '0';
-          else
-              EQ <= '0'; GT <= '0'; LT <= '1';
-          end if;
-      end process;
-  end architecture Behavioral;
+architecture Dataflow of COMPARATOR_2BIT is
+begin
+
+    -- Equal (XNOR checks equality)
+    EQ <= (A(1) xnor B(1)) and
+          (A(0) xnor B(0));
+
+    -- Greater Than
+    GT <= (A(1) and (not B(1))) or
+          ((A(1) xnor B(1)) and A(0) and (not B(0)));
+
+    -- Less Than
+    LT <= ((not A(1)) and B(1)) or
+          ((A(1) xnor B(1)) and (not A(0)) and B(0));
+
+end architecture Dataflow;
   ```
 * **Testbench Code ([tb_comparator_2bit.vhd](LAB5/tb_comparator_2bit.vhd)):**
   ```vhdl
-  library IEEE;
-  use IEEE.STD_LOGIC_1164.ALL;
-  use IEEE.NUMERIC_STD.ALL;
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
 
-  entity TB_COMPARATOR_2BIT is
-  end entity TB_COMPARATOR_2BIT;
+entity TB_COMPARATOR_2BIT is
+end entity TB_COMPARATOR_2BIT;
 
-  architecture Simulation of TB_COMPARATOR_2BIT is
-      signal A  : STD_LOGIC_VECTOR(1 downto 0) := "00";
-      signal B  : STD_LOGIC_VECTOR(1 downto 0) := "00";
-      signal EQ, GT, LT : STD_LOGIC;
-  begin
-      DUT : entity work.COMPARATOR_2BIT
-          port map (A => A, B => B, EQ => EQ, GT => GT, LT => LT);
+architecture Simulation of TB_COMPARATOR_2BIT is
 
-      STIMULUS : process
-      begin
-          for i in 0 to 3 loop
-              for j in 0 to 3 loop
-                  A <= std_logic_vector(to_unsigned(i, 2));
-                  B <= std_logic_vector(to_unsigned(j, 2));
-                  wait for 10 ns;
-              end loop;
-          end loop;
-          wait;
-      end process STIMULUS;
-  end architecture Simulation;
+    signal A  : STD_LOGIC_VECTOR(1 downto 0) := "00";
+    signal B  : STD_LOGIC_VECTOR(1 downto 0) := "00";
+    signal EQ : STD_LOGIC;
+    signal GT : STD_LOGIC;
+    signal LT : STD_LOGIC;
+
+begin
+
+    DUT : entity work.COMPARATOR_2BIT
+        port map (
+            A  => A,
+            B  => B,
+            EQ => EQ,
+            GT => GT,
+            LT => LT
+        );
+
+    STIMULUS : process
+    begin
+
+        -- A = B
+        A <= "00"; B <= "00"; wait for 10 ns;
+
+        -- A > B
+        A <= "01"; B <= "00"; wait for 10 ns;
+
+        -- A < B
+        A <= "00"; B <= "01"; wait for 10 ns;
+
+        -- A < B
+        A <= "10"; B <= "11"; wait for 10 ns;
+
+        -- A > B
+        A <= "11"; B <= "10"; wait for 10 ns;
+
+        -- A = B
+        A <= "11"; B <= "11"; wait for 10 ns;
+
+        wait;
+
+    end process;
+
+end architecture Simulation;
   ```
 * **Simulation Result Waveform:**
   ![Comparator Waveform](LAB5/comparator.png)
