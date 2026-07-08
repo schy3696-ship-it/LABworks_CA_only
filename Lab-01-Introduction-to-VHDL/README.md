@@ -119,10 +119,7 @@ The waveform can be viewed using **GTKWave** to verify that the Buffer circuit f
 | 20 – 30   | 0 | 0 |
 ### Waveform
 
-> **Note:** Add a screenshot of the GTKWave simulation here after opening `simulation.vcd`.
-
-<!-- Example -->
-<!-- ![Simulation Waveform](waveform.png) -->
+![Simulation Waveform](lab1.png)
 ---
 
 ## How to Run the Simulation

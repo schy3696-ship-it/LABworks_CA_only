@@ -59,10 +59,10 @@ The files are organized directly inside the `LAB5` folder:
 
 | File | Description | Link |
 |:---|:---|:---|
-| [comparator_2bit.vhd](file:///c:/Users/ACER/OneDrive/Desktop/4th%20sem/Computer%20Achitecture/CA/New%20folder/LABworks_CA_only/LAB5/comparator_2bit.vhd) | Design File (2-bit Comparator) | [comparator_2bit.vhd](file:///c:/Users/ACER/OneDrive/Desktop/4th%20sem/Computer%20Achitecture/CA/New%20folder/LABworks_CA_only/LAB5/comparator_2bit.vhd) |
-| [tb_comparator_2bit.vhd](file:///c:/Users/ACER/OneDrive/Desktop/4th%20sem/Computer%20Achitecture/CA/New%20folder/LABworks_CA_only/LAB5/tb_comparator_2bit.vhd) | Testbench File | [tb_comparator_2bit.vhd](file:///c:/Users/ACER/OneDrive/Desktop/4th%20sem/Computer%20Achitecture/CA/New%20folder/LABworks_CA_only/LAB5/tb_comparator_2bit.vhd) |
-| [simulation.vcd](file:///c:/Users/ACER/OneDrive/Desktop/4th%20sem/Computer%20Achitecture/CA/New%20folder/LABworks_CA_only/LAB5/simulation.vcd) | Waveform File | [simulation.vcd](file:///c:/Users/ACER/OneDrive/Desktop/4th%20sem/Computer%20Achitecture/CA/New%20folder/LABworks_CA_only/LAB5/simulation.vcd) |
-| [comparator.png](file:///c:/Users/ACER/OneDrive/Desktop/4th%20sem/Computer%20Achitecture/CA/New%20folder/LABworks_CA_only/LAB5/comparator.png) | Simulation Waveform Screenshot | [comparator.png](file:///c:/Users/ACER/OneDrive/Desktop/4th%20sem/Computer%20Achitecture/CA/New%20folder/LABworks_CA_only/LAB5/comparator.png) |
+| [comparator_2bit.vhd](comparator_2bit.vhd) | Design File (2-bit Comparator) | [comparator_2bit.vhd](comparator_2bit.vhd) |
+| [tb_comparator_2bit.vhd](tb_comparator_2bit.vhd) | Testbench File | [tb_comparator_2bit.vhd](tb_comparator_2bit.vhd) |
+| [simulation.vcd](simulation.vcd) | Waveform File | [simulation.vcd](simulation.vcd) |
+| [comparator.png](comparator.png) | Simulation Waveform Screenshot | [comparator.png](comparator.png) |
 
 ---
 
@@ -173,7 +173,7 @@ In this experiment, a 2-bit Magnitude Comparator was successfully designed using
 
 The testbench systematically evaluated all 16 possible input state combinations ($2^2 \times 2^2$) by nesting loops that generated inputs $00$ to $11$ for both $A$ and $B$. The simulation waveform generated in GTKWave matched the theoretical truth table exactly.
 
-![2-bit Comparator Simulation Waveform](file:///c:/Users/ACER/OneDrive/Desktop/4th%20sem/Computer%20Achitecture/CA/New%20folder/LABworks_CA_only/LAB5/comparator.png)
+![2-bit Comparator Simulation Waveform](comparator.png)
 
 ---
 

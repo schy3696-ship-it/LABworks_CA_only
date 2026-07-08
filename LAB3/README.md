@@ -58,8 +58,8 @@ The files are organized into two main folders for the Encoder and Decoder circui
 
 | Directory | Design File | Testbench File | Waveform File |
 |:---|:---|:---|:---|
-| [`Encoder`](file:///c:/Users/ACER/OneDrive/Desktop/4th%20sem/Computer%20Achitecture/CA/New%20folder/LABworks_CA_only/LAB3/Encoder) | [priority_encoder.vhd](file:///c:/Users/ACER/OneDrive/Desktop/4th%20sem/Computer%20Achitecture/CA/New%20folder/LABworks_CA_only/LAB3/Encoder/priority_encoder.vhd) | [tb_priority_encoder.vhd](file:///c:/Users/ACER/OneDrive/Desktop/4th%20sem/Computer%20Achitecture/CA/New%20folder/LABworks_CA_only/LAB3/Encoder/tb_priority_encoder.vhd) | [priority.vcd](file:///c:/Users/ACER/OneDrive/Desktop/4th%20sem/Computer%20Achitecture/CA/New%20folder/LABworks_CA_only/LAB3/Encoder/priority.vcd) |
-| [`De-Coder`](file:///c:/Users/ACER/OneDrive/Desktop/4th%20sem/Computer%20Achitecture/CA/New%20folder/LABworks_CA_only/LAB3/De-Coder) | [decoder_2to4.vhd](file:///c:/Users/ACER/OneDrive/Desktop/4th%20sem/Computer%20Achitecture/CA/New%20folder/LABworks_CA_only/LAB3/De-Coder/decoder_2to4.vhd) | [tb_decoder_2to4.vhd](file:///c:/Users/ACER/OneDrive/Desktop/4th%20sem/Computer%20Achitecture/CA/New%20folder/LABworks_CA_only/LAB3/De-Coder/tb_decoder_2to4.vhd) | [priority.vcd](file:///c:/Users/ACER/OneDrive/Desktop/4th%20sem/Computer%20Achitecture/CA/New%20folder/LABworks_CA_only/LAB3/De-Coder/priority.vcd) |
+| [`Encoder`](Encoder) | [priority_encoder.vhd](Encoder/priority_encoder.vhd) | [tb_priority_encoder.vhd](Encoder/tb_priority_encoder.vhd) | [priority.vcd](Encoder/priority.vcd) |
+| [`De-Coder`](De-Coder) | [decoder_2to4.vhd](De-Coder/decoder_2to4.vhd) | [tb_decoder_2to4.vhd](De-Coder/tb_decoder_2to4.vhd) | [priority.vcd](De-Coder/priority.vcd) |
 
 ---
 
@@ -134,6 +134,9 @@ begin
 end sim;
 ```
 
+* **Simulation Result Waveform (Priority Encoder):**
+  ![Priority Encoder Waveform](Encoder/encoder.png)
+
 ---
 
 ### 2. Decoder (2-to-4)
@@ -198,6 +201,9 @@ begin
     end process;
 end sim;
 ```
+
+* **Simulation Result Waveform (Decoder):**
+  ![Decoder Waveform](De-Coder/decoder.png)
 
 ---
 

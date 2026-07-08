@@ -60,8 +60,8 @@ The files are organized into two main folders for the Multiplexer and Demultiple
 
 | Directory | Design File | Testbench File | Waveform File |
 |:---|:---|:---|:---|
-| [`mux`](file:///c:/Users/ACER/OneDrive/Desktop/4th%20sem/Computer%20Achitecture/CA/New%20folder/LABworks_CA_only/LAB4/mux) | [mux_4to1.vhd](file:///c:/Users/ACER/OneDrive/Desktop/4th%20sem/Computer%20Achitecture/CA/New%20folder/LABworks_CA_only/LAB4/mux/mux_4to1.vhd) | [tb_mux_4to1.vhd](file:///c:/Users/ACER/OneDrive/Desktop/4th%20sem/Computer%20Achitecture/CA/New%20folder/LABworks_CA_only/LAB4/mux/tb_mux_4to1.vhd) | [simulation.vcd](file:///c:/Users/ACER/OneDrive/Desktop/4th%20sem/Computer%20Achitecture/CA/New%20folder/LABworks_CA_only/LAB4/mux/simulation.vcd) |
-| [`demux`](file:///c:/Users/ACER/OneDrive/Desktop/4th%20sem/Computer%20Achitecture/CA/New%20folder/LABworks_CA_only/LAB4/demux) | [demux_1to4.vhd](file:///c:/Users/ACER/OneDrive/Desktop/4th%20sem/Computer%20Achitecture/CA/New%20folder/LABworks_CA_only/LAB4/demux/demux_1to4.vhd) | [tb_demux_1to4.vhd](file:///c:/Users/ACER/OneDrive/Desktop/4th%20sem/Computer%20Achitecture/CA/New%20folder/LABworks_CA_only/LAB4/demux/tb_demux_1to4.vhd) | [simulation.vcd](file:///c:/Users/ACER/OneDrive/Desktop/4th%20sem/Computer%20Achitecture/CA/New%20folder/LABworks_CA_only/LAB4/demux/simulation.vcd) |
+| [`mux`](mux) | [mux_4to1.vhd](mux/mux_4to1.vhd) | [tb_mux_4to1.vhd](mux/tb_mux_4to1.vhd) | [simulation.vcd](mux/simulation.vcd) |
+| [`demux`](demux) | [demux_1to4.vhd](demux/demux_1to4.vhd) | [tb_demux_1to4.vhd](demux/tb_demux_1to4.vhd) | [simulation.vcd](demux/simulation.vcd) |
 
 ---
 

@@ -12,11 +12,11 @@ Each lab is structured in its own directory with design files (`.vhd`), testbenc
 
 | Lab Index | Experiment Name | Key Components | Directory Link |
 |:---:|:---|:---|:---|
-| **Lab 1** | Introduction to VHDL | Buffer (`MY_BUFFER`) | [`Lab-01-Introduction-to-VHDL`](file:///c:/Users/ACER/OneDrive/Desktop/4th%20sem/Computer%20Achitecture/CA/New%20folder/LABworks_CA_only/Lab-01-Introduction-to-VHDL) |
-| **Lab 2** | Realizing Basic Logic Gates | AND, OR, NOT, NAND, NOR, XOR, XNOR Gates | [`LAB2`](file:///c:/Users/ACER/OneDrive/Desktop/4th%20sem/Computer%20Achitecture/CA/New%20folder/LABworks_CA_only/LAB2) |
-| **Lab 3** | Combinational Circuits | 4-to-2 Priority Encoder & 2-to-4 Decoder | [`LAB3`](file:///c:/Users/ACER/OneDrive/Desktop/4th%20sem/Computer%20Achitecture/CA/New%20folder/LABworks_CA_only/LAB3) |
-| **Lab 4** | Routing Combinational Circuits | 4-to-1 Multiplexer & 1-to-4 Demultiplexer | [`LAB4`](file:///c:/Users/ACER/OneDrive/Desktop/4th%20sem/Computer%20Achitecture/CA/New%20folder/LABworks_CA_only/LAB4) |
-| **Lab 5** | Arithmetic Combinational Circuits | 2-bit Magnitude Comparator | [`LAB5`](file:///c:/Users/ACER/OneDrive/Desktop/4th%20sem/Computer%20Achitecture/CA/New%20folder/LABworks_CA_only/LAB5) |
+| **Lab 1** | Introduction to VHDL | Buffer (`MY_BUFFER`) | [`Lab-01-Introduction-to-VHDL`](Lab-01-Introduction-to-VHDL) |
+| **Lab 2** | Realizing Basic Logic Gates | AND, OR, NOT, NAND, NOR, XOR, XNOR Gates | [`LAB2`](LAB2) |
+| **Lab 3** | Combinational Circuits | 4-to-2 Priority Encoder & 2-to-4 Decoder | [`LAB3`](LAB3) |
+| **Lab 4** | Routing Combinational Circuits | 4-to-1 Multiplexer & 1-to-4 Demultiplexer | [`LAB4`](LAB4) |
+| **Lab 5** | Arithmetic Combinational Circuits | 2-bit Magnitude Comparator | [`LAB5`](LAB5) |
 
 ---
 
@@ -52,7 +52,7 @@ The following tools were used to compile and verify all designs:
 
 ### Lab 1: Introduction to VHDL (Buffer)
 * **Objective:** Learn VHDL design entry, library instantiation, and testbench structures by implementing a one-input, one-output buffer.
-* **VHDL Design Code ([buffer.vhd](file:///c:/Users/ACER/OneDrive/Desktop/4th%20sem/Computer%20Achitecture/CA/New%20folder/LABworks_CA_only/Lab-01-Introduction-to-VHDL/buffer.vhd)):**
+* **VHDL Design Code ([buffer.vhd](Lab-01-Introduction-to-VHDL/buffer.vhd)):**
   ```vhdl
   library IEEE;
   use IEEE.STD_LOGIC_1164.ALL;
@@ -69,7 +69,7 @@ The following tools were used to compile and verify all designs:
       Y <= A;
   end architecture Dataflow;
   ```
-* **Testbench Code ([tb_buffer.vhd](file:///c:/Users/ACER/OneDrive/Desktop/4th%20sem/Computer%20Achitecture/CA/New%20folder/LABworks_CA_only/Lab-01-Introduction-to-VHDL/tb_buffer.vhd)):**
+* **Testbench Code ([tb_buffer.vhd](Lab-01-Introduction-to-VHDL/tb_buffer.vhd)):**
   ```vhdl
   library IEEE;
   use IEEE.STD_LOGIC_1164.ALL;
@@ -97,13 +97,13 @@ The following tools were used to compile and verify all designs:
   end architecture Simulation;
   ```
 * **Simulation Result Waveform:**
-  ![Lab 1 Waveform](file:///c:/Users/ACER/OneDrive/Desktop/4th%20sem/Computer%20Achitecture/CA/New%20folder/LABworks_CA_only/Lab-01-Introduction-to-VHDL/lab1.png)
+  ![Lab 1 Waveform](Lab-01-Introduction-to-VHDL/lab1.png)
 
 ---
 
 ### Lab 2: Realizing Basic Logic Gates
 * **Objective:** Design basic logic gates using `bit` primitives and verify their truth tables.
-* **Gates Source Codes ([LAB2](file:///c:/Users/ACER/OneDrive/Desktop/4th%20sem/Computer%20Achitecture/CA/New%20folder/LABworks_CA_only/LAB2)):**
+* **Gates Source Codes ([LAB2](LAB2)):**
   * **AND Gate:** `Y <= A and B;`
   * **OR Gate:** `Y <= A or B;`
   * **NOT Gate:** `Y <= not A;`
@@ -111,7 +111,7 @@ The following tools were used to compile and verify all designs:
   * **NOR Gate:** `Y <= not (A or B);`
   * **XOR Gate:** `Y <= A xor B;`
   * **XNOR Gate:** `Y <= not (A xor B);`
-* **Example Code - AND Gate ([and_gate.vhdl](file:///c:/Users/ACER/OneDrive/Desktop/4th%20sem/Computer%20Achitecture/CA/New%20folder/LABworks_CA_only/LAB2/and_gate/and_gate.vhdl)):**
+* **Example Code - AND Gate ([and_gate.vhdl](LAB2/and_gate/and_gate.vhdl)):**
   ```vhdl
   entity and_gate is
       port (
@@ -128,7 +128,7 @@ The following tools were used to compile and verify all designs:
       Y <= temp;
   end behavior;
   ```
-* **AND Gate Testbench ([and_gate_test.vhdl](file:///c:/Users/ACER/OneDrive/Desktop/4th%20sem/Computer%20Achitecture/CA/New%20folder/LABworks_CA_only/LAB2/and_gate/and_gate_test.vhdl)):**
+* **AND Gate Testbench ([and_gate_test.vhdl](LAB2/and_gate/and_gate_test.vhdl)):**
   ```vhdl
   entity and_gate_test is
   end and_gate_test;
@@ -155,13 +155,13 @@ The following tools were used to compile and verify all designs:
   end test;
   ```
 * **Simulation Result Waveform (AND Gate):**
-  ![AND Gate Waveform](file:///c:/Users/ACER/OneDrive/Desktop/4th%20sem/Computer%20Achitecture/CA/New%20folder/LABworks_CA_only/LAB2/and_gate/and_gate.png)
+  ![AND Gate Waveform](LAB2/and_gate/and_gate.png)
 
 ---
 
 ### Lab 3: Combinational Circuits (Encoder & Decoder)
 * **Objective:** Implement a 4-to-2 Priority Encoder (resolving multi-active input issues by assigning highest priority to $D_3$) and a 2-to-4 Decoder.
-* **4-to-2 Priority Encoder Design ([priority_encoder.vhd](file:///c:/Users/ACER/OneDrive/Desktop/4th%20sem/Computer%20Achitecture/CA/New%20folder/LABworks_CA_only/LAB3/Encoder/priority_encoder.vhd)):**
+* **4-to-2 Priority Encoder Design ([priority_encoder.vhd](LAB3/Encoder/priority_encoder.vhd)):**
   ```vhdl
   library IEEE;
   use IEEE.STD_LOGIC_1164.ALL;
@@ -191,7 +191,7 @@ The following tools were used to compile and verify all designs:
       end process;
   end Behavioral;
   ```
-* **2-to-4 Decoder Design ([decoder_2to4.vhd](file:///c:/Users/ACER/OneDrive/Desktop/4th%20sem/Computer%20Achitecture/CA/New%20folder/LABworks_CA_only/LAB3/De-Coder/decoder_2to4.vhd)):**
+* **2-to-4 Decoder Design ([decoder_2to4.vhd](LAB3/De-Coder/decoder_2to4.vhd)):**
   ```vhdl
   library IEEE;
   use IEEE.STD_LOGIC_1164.ALL;
@@ -219,15 +219,15 @@ The following tools were used to compile and verify all designs:
   ```
 * **Simulation Waveforms:**
   * **Priority Encoder:**
-    ![Encoder Waveform](file:///c:/Users/ACER/OneDrive/Desktop/4th%20sem/Computer%20Achitecture/CA/New%20folder/LABworks_CA_only/LAB3/Encoder/encoder.png)
+    ![Encoder Waveform](LAB3/Encoder/encoder.png)
   * **Decoder:**
-    ![Decoder Waveform](file:///c:/Users/ACER/OneDrive/Desktop/4th%20sem/Computer%20Achitecture/CA/New%20folder/LABworks_CA_only/LAB3/De-Coder/decoder.png)
+    ![Decoder Waveform](LAB3/De-Coder/decoder.png)
 
 ---
 
 ### Lab 4: Multiplexer & Demultiplexer
 * **Objective:** Design routing combinational circuits: a 4-to-1 Multiplexer (selecting 1 of 4 inputs to route to output) and a 1-to-4 Demultiplexer (routing 1 input to 1 of 4 outputs).
-* **4-to-1 Multiplexer Design ([mux_4to1.vhd](file:///c:/Users/ACER/OneDrive/Desktop/4th%20sem/Computer%20Achitecture/CA/New%20folder/LABworks_CA_only/LAB4/mux/mux_4to1.vhd)):**
+* **4-to-1 Multiplexer Design ([mux_4to1.vhd](LAB4/mux/mux_4to1.vhd)):**
   ```vhdl
   library IEEE;
   use IEEE.STD_LOGIC_1164.ALL;
@@ -260,7 +260,7 @@ The following tools were used to compile and verify all designs:
       end process;
   end architecture Behavioral;
   ```
-* **1-to-4 Demultiplexer Design ([demux_1to4.vhd](file:///c:/Users/ACER/OneDrive/Desktop/4th%20sem/Computer%20Achitecture/CA/New%20folder/LABworks_CA_only/LAB4/demux/demux_1to4.vhd)):**
+* **1-to-4 Demultiplexer Design ([demux_1to4.vhd](LAB4/demux/demux_1to4.vhd)):**
   ```vhdl
   library IEEE;
   use IEEE.STD_LOGIC_1164.ALL;
@@ -299,7 +299,7 @@ The following tools were used to compile and verify all designs:
 
 ### Lab 5: 2-bit Magnitude Comparator
 * **Objective:** Design an arithmetic combinational logic module to compare two 2-bit inputs ($A$ and $B$) and indicate whether $A = B$ ($EQ$), $A > B$ ($GT$), or $A < B$ ($LT$).
-* **2-bit Magnitude Comparator Design ([comparator_2bit.vhd](file:///c:/Users/ACER/OneDrive/Desktop/4th%20sem/Computer%20Achitecture/CA/New%20folder/LABworks_CA_only/LAB5/comparator_2bit.vhd)):**
+* **2-bit Magnitude Comparator Design ([comparator_2bit.vhd](LAB5/comparator_2bit.vhd)):**
   ```vhdl
   library IEEE;
   use IEEE.STD_LOGIC_1164.ALL;
@@ -329,7 +329,7 @@ The following tools were used to compile and verify all designs:
       end process;
   end architecture Behavioral;
   ```
-* **Testbench Code ([tb_comparator_2bit.vhd](file:///c:/Users/ACER/OneDrive/Desktop/4th%20sem/Computer%20Achitecture/CA/New%20folder/LABworks_CA_only/LAB5/tb_comparator_2bit.vhd)):**
+* **Testbench Code ([tb_comparator_2bit.vhd](LAB5/tb_comparator_2bit.vhd)):**
   ```vhdl
   library IEEE;
   use IEEE.STD_LOGIC_1164.ALL;
@@ -360,7 +360,7 @@ The following tools were used to compile and verify all designs:
   end architecture Simulation;
   ```
 * **Simulation Result Waveform:**
-  ![Comparator Waveform](file:///c:/Users/ACER/OneDrive/Desktop/4th%20sem/Computer%20Achitecture/CA/New%20folder/LABworks_CA_only/LAB5/comparator.png)
+  ![Comparator Waveform](LAB5/comparator.png)
 
 ---
 
