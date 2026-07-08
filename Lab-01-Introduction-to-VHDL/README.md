@@ -125,7 +125,7 @@ The waveform can be viewed using **GTKWave** to verify that the Buffer circuit f
 <!-- ![Simulation Waveform](waveform.png) -->
 ---
 
-## ▶ How to Run the Simulation
+## How to Run the Simulation
 
 Compile the design and testbench using **GHDL**:
 

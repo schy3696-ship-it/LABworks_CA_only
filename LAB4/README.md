@@ -269,7 +269,7 @@ end architecture Simulation;
 
 ---
 
-## ▶ How to Run the Simulations
+## How to Run the Simulations
 
 You can compile and simulate both circuits using **GHDL** and inspect the waveforms using **GTKWave**.
 

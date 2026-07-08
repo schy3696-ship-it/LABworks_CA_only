@@ -469,7 +469,7 @@ end test;
 
 ---
 
-## ▶ How to Run the Simulations
+## How to Run the Simulations
 
 You can compile and simulate each gate using **GHDL** in your command line. First, navigate to the folder of the specific gate you want to simulate:
 
