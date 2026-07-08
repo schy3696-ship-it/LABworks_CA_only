@@ -1,10 +1,10 @@
-# 💻 LAB 4: VHDL Code for Multiplexer and Demultiplexer
+# LAB 4: VHDL Code for Multiplexer and Demultiplexer
 
 This laboratory covers the design, implementation, and simulation of combinational logic circuits—specifically a **4-to-1 Multiplexer (MUX)** and a **1-to-4 Demultiplexer (DEMUX)**—using **VHDL**. The behavior of these circuits is verified through testbenches and signal waveforms in an open-source simulation environment.
 
 ---
 
-## 🎯 Objective
+## Objective
 
 - To understand the operation of multiplexers and demultiplexers.
 - To design and implement a 4-to-1 Multiplexer and a 1-to-4 Demultiplexer using VHDL.
@@ -13,7 +13,7 @@ This laboratory covers the design, implementation, and simulation of combination
 
 ---
 
-## 📖 Theory & Truth Tables
+## Theory & Truth Tables
 
 Combinational circuits are digital circuits whose outputs depend solely on the current inputs. Unlike sequential circuits, they contain no memory elements (such as flip-flops) and do not require clock signals.
 
@@ -45,7 +45,7 @@ A 1-to-4 Demultiplexer has 1 data input ($D$), 2 select lines ($S_1, S_0$), and 
 
 ---
 
-## 🛠️ Software Used
+## Software Used
 
 - **VHDL** – Hardware Description Language
 - **GHDL** – Open-source VHDL compiler & simulator
@@ -54,7 +54,7 @@ A 1-to-4 Demultiplexer has 1 data input ($D$), 2 select lines ($S_1, S_0$), and 
 
 ---
 
-## 📂 Project Structure & Files
+## Project Structure & Files
 
 The files are organized into two main folders for the Multiplexer and Demultiplexer circuits.
 
@@ -65,7 +65,7 @@ The files are organized into two main folders for the Multiplexer and Demultiple
 
 ---
 
-## 💻 VHDL Design & Testbench Codes
+## VHDL Design & Testbench Codes
 
 ### 1. 4-to-1 Multiplexer (MUX)
 * **Design:** `mux/mux_4to1.vhd`
@@ -269,7 +269,7 @@ end architecture Simulation;
 
 ---
 
-## ▶️ How to Run the Simulations
+## ▶ How to Run the Simulations
 
 You can compile and simulate both circuits using **GHDL** and inspect the waveforms using **GTKWave**.
 
@@ -293,7 +293,7 @@ gtkwave simulation.vcd
 
 ---
 
-## 📊 Discussion
+## Discussion
 
 In this experiment, a 4-to-1 Multiplexer and a 1-to-4 Demultiplexer were successfully designed using VHDL and simulated using GHDL. The designs utilize behavioral modeling with a process and case statement to implement selection logic.
 
@@ -303,7 +303,7 @@ The testbenches successfully verified both circuits. The simulation waveforms ob
 
 ---
 
-## ✅ Conclusion
+## Conclusion
 
 The multiplexer and demultiplexer circuits were successfully implemented and simulated using VHDL. The simulation results matched the expected logic functions for all selector input combinations. This experiment enhanced our understanding of routing logic circuits and verified VHDL design flows utilizing variables, concatenation, and case statements.
 

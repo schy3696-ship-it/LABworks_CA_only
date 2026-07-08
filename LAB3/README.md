@@ -1,10 +1,10 @@
-# 💻 LAB 3: VHDL Code for Combinational Circuits (Encoder and Decoder)
+# LAB 3: VHDL Code for Combinational Circuits (Encoder and Decoder)
 
 This laboratory covers the design, implementation, and simulation of combinational logic circuits—specifically a **4-to-2 Priority Encoder** and a **2-to-4 Decoder**—using **VHDL**. The behavior of these circuits is verified through testbenches and signal waveforms in an open-source simulation environment.
 
 ---
 
-## 🎯 Objective
+## Objective
 
 - To design and implement combinational circuits (Priority Encoder and Decoder) using VHDL.
 - To verify their functional correctness using VHDL testbenches.
@@ -12,7 +12,7 @@ This laboratory covers the design, implementation, and simulation of combination
 
 ---
 
-## 📖 Theory & Truth Tables
+## Theory & Truth Tables
 
 Combinational circuits are digital circuits whose outputs depend solely on the current inputs. Unlike sequential circuits, they contain no memory elements (such as flip-flops) and do not require clock signals.
 
@@ -43,7 +43,7 @@ A decoder performs the reverse operation of an encoder. It decodes a binary inpu
 
 ---
 
-## 🛠️ Software Used
+## Software Used
 
 - **VHDL** – Hardware Description Language
 - **GHDL** – Open-source VHDL compiler & simulator
@@ -52,7 +52,7 @@ A decoder performs the reverse operation of an encoder. It decodes a binary inpu
 
 ---
 
-## 📂 Project Structure & Files
+## Project Structure & Files
 
 The files are organized into two main folders for the Encoder and Decoder circuits.
 
@@ -63,7 +63,7 @@ The files are organized into two main folders for the Encoder and Decoder circui
 
 ---
 
-## 💻 VHDL Design & Testbench Codes
+## VHDL Design & Testbench Codes
 
 ### 1. Priority Encoder (4-to-2)
 * **Design:** `Encoder/priority_encoder.vhd`
@@ -201,7 +201,7 @@ end sim;
 
 ---
 
-## ▶️ How to Run the Simulations
+## ▶ How to Run the Simulations
 
 You can compile and simulate both circuits using **GHDL** and inspect the waveforms using **GTKWave**.
 
@@ -225,7 +225,7 @@ gtkwave priority.vcd
 
 ---
 
-## 📊 Discussion
+## Discussion
 
 In this laboratory, various combinational circuits were designed and implemented using VHDL. Unlike sequential circuits, combinational circuits produce outputs that depend only on the current input values and do not require memory elements or clock signals.
 
@@ -235,7 +235,7 @@ Through this experiment, the relationship between Boolean logic and hardware imp
 
 ---
 
-## ✅ Conclusion
+## Conclusion
 
 The combinational circuits were successfully implemented and simulated using VHDL. The simulation results confirmed that the outputs were generated correctly for all input combinations according to their respective logical functions. This laboratory strengthened the understanding of combinational logic design, VHDL programming, testbench development, and waveform analysis using open-source simulation tools.
 

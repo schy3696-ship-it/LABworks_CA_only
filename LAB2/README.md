@@ -1,10 +1,10 @@
-# 💻 LAB 2: Realization of Basic Logic Gates using VHDL
+# LAB 2: Realization of Basic Logic Gates using VHDL
 
 This laboratory covers the design, implementation, and simulation of basic digital logic gates (AND, OR, NOT, NAND, NOR, XOR, XNOR) using **VHDL**. The functionality of each gate is verified through testbenches and signal waveforms in an open-source simulation environment.
 
 ---
 
-## 🎯 Objective
+## Objective
 
 - To design and implement basic logic gates (AND, OR, NOT, NAND, NOR, XOR, XNOR) using VHDL.
 - To verify the functionality of each gate using VHDL testbenches.
@@ -12,7 +12,7 @@ This laboratory covers the design, implementation, and simulation of basic digit
 
 ---
 
-## 📖 Theory & Truth Tables
+## Theory & Truth Tables
 
 Logic gates are the fundamental building blocks of digital electronic circuits. Each gate performs a specific logical operation on its inputs.
 
@@ -93,7 +93,7 @@ $$\text{Logic expression: } Y = \overline{A \oplus B}$$
 
 ---
 
-## 🛠️ Software Used
+## Software Used
 
 - **VHDL** – Hardware Description Language
 - **GHDL** – Open-source VHDL compiler & simulator
@@ -102,7 +102,7 @@ $$\text{Logic expression: } Y = \overline{A \oplus B}$$
 
 ---
 
-## 📂 Project Structure & Files
+## Project Structure & Files
 
 Each logic gate is organized into its own subfolder containing the design code, testbench, simulation waveform, and simulation screenshot.
 
@@ -118,7 +118,7 @@ Each logic gate is organized into its own subfolder containing the design code, 
 
 ---
 
-## 💻 VHDL Design & Testbench Codes
+## VHDL Design & Testbench Codes
 
 Below are the VHDL source codes and testbenches for each logic gate.
 
@@ -469,7 +469,7 @@ end test;
 
 ---
 
-## ▶️ How to Run the Simulations
+## ▶ How to Run the Simulations
 
 You can compile and simulate each gate using **GHDL** in your command line. First, navigate to the folder of the specific gate you want to simulate:
 
@@ -491,7 +491,7 @@ Follow the same pattern for any other gate:
 
 ---
 
-## ✅ Conclusion
+## Conclusion
 
 In this laboratory, VHDL designs for all seven fundamental logic gates (AND, OR, NOT, NAND, NOR, XOR, XNOR) were successfully created. The operation of each gate was verified by simulating its respective testbench with GHDL, showing exact alignment with the truth tables in GTKWave waveforms.
 

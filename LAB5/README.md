@@ -1,10 +1,10 @@
-# 💻 LAB 5: VHDL Code for 2-bit Magnitude Comparator
+# LAB 5: VHDL Code for 2-bit Magnitude Comparator
 
 This laboratory covers the design, implementation, and simulation of a combinational logic circuit—specifically a **2-bit Magnitude Comparator**—using **VHDL**. The behavior of this circuit is verified through a testbench and signal waveforms in an open-source simulation environment.
 
 ---
 
-## 🎯 Objective
+## Objective
 
 - To understand the operation of magnitude comparators.
 - To design and implement a 2-bit Magnitude Comparator using VHDL.
@@ -13,7 +13,7 @@ This laboratory covers the design, implementation, and simulation of a combinati
 
 ---
 
-## 📖 Theory & Truth Tables
+## Theory & Truth Tables
 
 Combinational circuits are digital circuits whose outputs depend solely on the current inputs. A magnitude comparator is a combinational circuit that compares two numbers, $A$ and $B$, and determines their relative magnitudes (whether $A$ is equal to, greater than, or less than $B$).
 
@@ -44,7 +44,7 @@ A 2-bit Magnitude Comparator compares two 2-bit binary inputs $A = A_1 A_0$ and 
 
 ---
 
-## 🛠️ Software Used
+## Software Used
 
 - **VHDL** – Hardware Description Language
 - **GHDL** – Open-source VHDL compiler & simulator
@@ -53,7 +53,7 @@ A 2-bit Magnitude Comparator compares two 2-bit binary inputs $A = A_1 A_0$ and 
 
 ---
 
-## 📂 Project Structure & Files
+## Project Structure & Files
 
 The files are organized directly inside the `LAB5` folder:
 
@@ -66,7 +66,7 @@ The files are organized directly inside the `LAB5` folder:
 
 ---
 
-## 💻 VHDL Design & Testbench Codes
+## VHDL Design & Testbench Codes
 
 ### 1. 2-bit Magnitude Comparator
 * **Design:** `comparator_2bit.vhd`
@@ -154,7 +154,7 @@ end architecture Simulation;
 
 ---
 
-## ▶️ How to Run the Simulations
+## ▶ How to Run the Simulations
 
 You can compile and simulate the circuit using **GHDL** and inspect the waveforms using **GTKWave**.
 
@@ -167,7 +167,7 @@ gtkwave simulation.vcd
 
 ---
 
-## 📊 Discussion
+## Discussion
 
 In this experiment, a 2-bit Magnitude Comparator was successfully designed using VHDL and simulated using GHDL. The architecture utilizes behavioral modeling with a process block. Inside the process, type casting to `unsigned` (using the `IEEE.NUMERIC_STD.ALL` library) is performed on the input `STD_LOGIC_VECTOR` vectors, allowing for direct numerical comparison (`=`, `>`, and `<`) in the if-elsif-else control structure.
 
@@ -177,7 +177,7 @@ The testbench systematically evaluated all 16 possible input state combinations 
 
 ---
 
-## ✅ Conclusion
+## Conclusion
 
 The 2-bit Magnitude Comparator circuit was successfully designed, simulated, and verified in VHDL. The simulation outputs correctly determined equality ($A = B$), greater than ($A > B$), and less than ($A < B$) for all combinations of the inputs. This experiment reinforced how numeric type conversions and relational operations are described in VHDL.
 

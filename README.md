@@ -1,4 +1,4 @@
-# 🖥️ Computer Architecture Lab - VHDL Laboratory Works
+# Computer Architecture Lab - VHDL Laboratory Works
 
 Welcome to the **Computer Architecture Lab** repository. This workspace contains the complete design, implementation, simulation, and verification of various combinational logic gates and modules using **VHDL** (VHSIC Hardware Description Language).
 
@@ -6,7 +6,7 @@ All designs are compiled and simulated using the open-source **GHDL** toolchain,
 
 ---
 
-## 📂 Laboratory Directory Structure
+## Laboratory Directory Structure
 
 Each lab is structured in its own directory with design files (`.vhd`), testbenches, simulation wave results (`.vcd`), and detailed readme documentation:
 
@@ -20,7 +20,7 @@ Each lab is structured in its own directory with design files (`.vhd`), testbenc
 
 ---
 
-## 🛠️ Software Stack & Environment Setup
+## Software Stack & Environment Setup
 
 The following tools were used to compile and verify all designs:
 1. **GHDL Compiler** – Analyzes (`-a`), elaborates (`-e`), and runs (`-r`) VHDL source code.
@@ -48,9 +48,9 @@ The following tools were used to compile and verify all designs:
 
 ---
 
-## 🧪 Detailed Experiments
+## Detailed Experiments
 
-### 🔬 Lab 1: Introduction to VHDL (Buffer)
+### Lab 1: Introduction to VHDL (Buffer)
 * **Objective:** Learn VHDL design entry, library instantiation, and testbench structures by implementing a one-input, one-output buffer.
 * **VHDL Design Code ([buffer.vhd](file:///c:/Users/ACER/OneDrive/Desktop/4th%20sem/Computer%20Achitecture/CA/New%20folder/LABworks_CA_only/Lab-01-Introduction-to-VHDL/buffer.vhd)):**
   ```vhdl
@@ -101,7 +101,7 @@ The following tools were used to compile and verify all designs:
 
 ---
 
-### 🔬 Lab 2: Realizing Basic Logic Gates
+### Lab 2: Realizing Basic Logic Gates
 * **Objective:** Design basic logic gates using `bit` primitives and verify their truth tables.
 * **Gates Source Codes ([LAB2](file:///c:/Users/ACER/OneDrive/Desktop/4th%20sem/Computer%20Achitecture/CA/New%20folder/LABworks_CA_only/LAB2)):**
   * **AND Gate:** `Y <= A and B;`
@@ -159,7 +159,7 @@ The following tools were used to compile and verify all designs:
 
 ---
 
-### 🔬 Lab 3: Combinational Circuits (Encoder & Decoder)
+### Lab 3: Combinational Circuits (Encoder & Decoder)
 * **Objective:** Implement a 4-to-2 Priority Encoder (resolving multi-active input issues by assigning highest priority to $D_3$) and a 2-to-4 Decoder.
 * **4-to-2 Priority Encoder Design ([priority_encoder.vhd](file:///c:/Users/ACER/OneDrive/Desktop/4th%20sem/Computer%20Achitecture/CA/New%20folder/LABworks_CA_only/LAB3/Encoder/priority_encoder.vhd)):**
   ```vhdl
@@ -225,7 +225,7 @@ The following tools were used to compile and verify all designs:
 
 ---
 
-### 🔬 Lab 4: Multiplexer & Demultiplexer
+### Lab 4: Multiplexer & Demultiplexer
 * **Objective:** Design routing combinational circuits: a 4-to-1 Multiplexer (selecting 1 of 4 inputs to route to output) and a 1-to-4 Demultiplexer (routing 1 input to 1 of 4 outputs).
 * **4-to-1 Multiplexer Design ([mux_4to1.vhd](file:///c:/Users/ACER/OneDrive/Desktop/4th%20sem/Computer%20Achitecture/CA/New%20folder/LABworks_CA_only/LAB4/mux/mux_4to1.vhd)):**
   ```vhdl
@@ -297,7 +297,7 @@ The following tools were used to compile and verify all designs:
 
 ---
 
-### 🔬 Lab 5: 2-bit Magnitude Comparator
+### Lab 5: 2-bit Magnitude Comparator
 * **Objective:** Design an arithmetic combinational logic module to compare two 2-bit inputs ($A$ and $B$) and indicate whether $A = B$ ($EQ$), $A > B$ ($GT$), or $A < B$ ($LT$).
 * **2-bit Magnitude Comparator Design ([comparator_2bit.vhd](file:///c:/Users/ACER/OneDrive/Desktop/4th%20sem/Computer%20Achitecture/CA/New%20folder/LABworks_CA_only/LAB5/comparator_2bit.vhd)):**
   ```vhdl
@@ -364,7 +364,7 @@ The following tools were used to compile and verify all designs:
 
 ---
 
-## 📌 Conclusion & Learnings
+## Conclusion & Learnings
 Across these five laboratory exercises, the foundational flow of digital system design and hardware description using VHDL was fully explored:
 1. **Behavioral vs. Dataflow Design:** Utilized both behavioral constructs (like `case` statements, variable concatenation, and sequential `if` branches inside `process` blocks) and direct dataflow models.
 2. **Standard and Numeric Libraries:** Transitioned from basic `bit` operations (Lab 2) to standard multi-level logic `std_logic` and arithmetic logic types (`unsigned` from `IEEE.NUMERIC_STD`) in magnitude comparison.

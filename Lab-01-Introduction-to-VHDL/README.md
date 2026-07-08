@@ -1,7 +1,7 @@
-# 💻 LAB 1: Introduction to VHDL Programming and Open-Source Simulation Environment
+# LAB 1: Introduction to VHDL Programming and Open-Source Simulation Environment
 This laboratory introduces the fundamentals of **VHDL (VHSIC Hardware Description Language)** and demonstrates how to simulate digital circuits using an open-source simulation environment. The experiment implements a simple **Buffer circuit**, verifies its functionality through a testbench, and observes the simulation results.
 ---
-## 🎯 Objective
+## Objective
 
 - To understand the basics of VHDL programming.
 - To become familiar with an open-source VHDL simulation environment.
@@ -9,7 +9,7 @@ This laboratory introduces the fundamentals of **VHDL (VHSIC Hardware Descriptio
 - To verify the circuit using a VHDL testbench.
 ---
 
-## 📖 Theory
+## Theory
 
 **VHDL (VHSIC Hardware Description Language)** is a hardware description language used to model, simulate, and design digital electronic systems. It enables engineers to describe the behavior and structure of digital circuits before implementing them on hardware such as FPGAs or ASICs.
 
@@ -23,7 +23,7 @@ A **Buffer** is one of the simplest digital logic elements. It transfers the inp
 | 1 | 1 |
 ---
 
-## 🛠️ Software Used
+## Software Used
 
 - **VHDL** – Hardware Description Language
 - **GHDL** – Open-source VHDL simulator
@@ -31,7 +31,7 @@ A **Buffer** is one of the simplest digital logic elements. It transfers the inp
 - **Visual Studio Code (VS Code)** – Code editor
 ---
 
-## 📂 Files Included
+## Files Included
 
 | File | Description |
 |------|-------------|
@@ -41,7 +41,7 @@ A **Buffer** is one of the simplest digital logic elements. It transfers the inp
 | `lab1.readme` | Additional notes or simulator output |
 ---
 
-## 💻 VHDL Design Code
+## VHDL Design Code
 
 The following VHDL program implements a simple **Buffer** circuit. The output always follows the input.
 
@@ -66,7 +66,7 @@ end architecture Dataflow;
 ```
 ---
 
-## 🧪 Testbench Code
+## Testbench Code
 
 The following testbench verifies the operation of the Buffer circuit by applying different input values and observing the corresponding output.
 
@@ -104,7 +104,7 @@ end architecture Simulation;
 ```
 ---
 
-## 📊 Simulation Results
+## Simulation Results
 
 The simulation was performed using **GHDL**, and the generated waveform was saved as `simulation.vcd`.
 
@@ -125,7 +125,7 @@ The waveform can be viewed using **GTKWave** to verify that the Buffer circuit f
 <!-- ![Simulation Waveform](waveform.png) -->
 ---
 
-## ▶️ How to Run the Simulation
+## ▶ How to Run the Simulation
 
 Compile the design and testbench using **GHDL**:
 
@@ -143,7 +143,7 @@ gtkwave simulation.vcd
 ```
 ---
 
-## ✅ Conclusion
+## Conclusion
 
 In this laboratory, a simple **Buffer circuit** was designed and simulated using **VHDL**. The testbench successfully verified that the output always followed the input. The simulation demonstrated the basic VHDL design flow, including writing the design, creating a testbench, compiling the code, and analyzing the waveform using GTKWave.
 ---
