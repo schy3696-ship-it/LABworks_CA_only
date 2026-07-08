@@ -1,0 +1,86 @@
+LAB 6 (Part B): VHDL Code for Binary to Gray Code Converter
+
+OBJECTIVE
+---------
+1. To understand the operation and logic of Gray code conversion.
+2. To design and implement a 4-bit Binary to Gray Code Converter using VHDL.
+3. To simulate this combinational circuit using GHDL and verify its operation.
+4. To analyze simulation waveforms using GTKWave.
+
+THEORY
+------
+A Binary to Gray Code Converter is a combinational circuit that translates a standard binary number into a Gray code format. Gray code is an unweighted code where two successive values differ by only one binary bit. This property makes it highly useful in error detection, rotary encoders, and digital communications to avoid transitions on multiple lines simultaneously.
+
+For a 4-bit Binary input B (B3 B2 B1 B0) and 4-bit Gray output G (G3 G2 G1 G0), the logic conversion is defined as:
+- G3 = B3 (MSB remains unchanged)
+- G2 = B3 XOR B2
+- G1 = B2 XOR B1
+- G0 = B1 XOR B0
+
+For example:
+- Input B = "0010" (2) -> Output G = "0011" (3)
+- Input B = "0100" (4) -> Output G = "0110" (6)
+- Input B = "1111" (15) -> Output G = "1000" (8)
+
+VHDL CODES
+----------
+
+1. Binary to Gray Converter Design File (bin_to_gray.vhd)
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity BIN_TO_GRAY is
+    port (
+        B : in std_logic_vector(3 downto 0);   -- 4-bit binary input
+        G : out std_logic_vector(3 downto 0)   -- 4-bit Gray code output
+    );
+end entity BIN_TO_GRAY;
+
+architecture Dataflow of BIN_TO_GRAY is
+begin
+    G(3) <= B(3);               -- MSB stays the same
+    G(2) <= B(3) xor B(2);
+    G(1) <= B(2) xor B(1);
+    G(0) <= B(1) xor B(0);
+end architecture Dataflow;
+
+2. Testbench File (gray_tb.vhd)
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity GRAY_TB is
+end entity GRAY_TB;
+
+architecture Simulation of GRAY_TB is
+    signal B : std_logic_vector(3 downto 0) := "0000";
+    signal G : std_logic_vector(3 downto 0);
+begin
+
+    DUT : entity work.BIN_TO_GRAY 
+        port map (
+            B => B, 
+            G => G
+        );
+
+    STIMULUS : process
+    begin
+        B <= "0000"; wait for 10 ns; -- Gray : 0000
+        B <= "0001"; wait for 10 ns; -- Gray : 0001
+        B <= "0010"; wait for 10 ns; -- Gray : 0011
+        B <= "0011"; wait for 10 ns; -- Gray : 0010
+        B <= "0100"; wait for 10 ns; -- Gray : 0110
+        B <= "1111"; wait for 10 ns; -- Gray : 1000
+        wait;
+    end process;
+
+end architecture Simulation;
+
+DISCUSSION
+----------
+In this experiment, a 4-bit Binary to Gray Code Converter was successfully designed in VHDL and simulated using GHDL. The architecture is described using Dataflow modeling with concurrent signal assignments, which directly implement the bitwise XOR equations mapping binary to Gray representation.
+
+The testbench systematically evaluated multiple binary inputs: 0 ("0000"), 1 ("0001"), 2 ("0010"), 3 ("0011"), 4 ("0100"), and 15 ("1111"). The simulated output values exactly matched the Gray code values, confirming that the hardware logic is modeled correctly.
+
+CONCLUSION
+----------
+The 4-bit Binary to Gray Code Converter was successfully designed, simulated, and verified in VHDL. The simulation waveforms confirmed that the conversion logic generates the correct Gray code output for all tested binary inputs. This experiment reinforced the use of dataflow modeling and bitwise logical operations in VHDL.

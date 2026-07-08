@@ -1,0 +1,82 @@
+LAB 6 (Part A): VHDL Code for BCD to Excess-3 Code Converter
+
+OBJECTIVE
+---------
+1. To understand the operation and logic of code converters.
+2. To design and implement a BCD to Excess-3 Code Converter using VHDL.
+3. To simulate this combinational circuit using GHDL and verify its operation.
+4. To analyze simulation waveforms using GTKWave.
+
+THEORY
+------
+A code converter is a combinational logic circuit that changes information represented in one code format into another. 
+
+A BCD (Binary Coded Decimal) to Excess-3 code converter transforms a 4-bit BCD input (representing decimal digits 0 to 9) into Excess-3 code. Excess-3 is a non-weighted, self-complementing code. The Excess-3 representation is obtained by adding binary 3 (0011) to the BCD digit.
+
+For example:
+- Input BCD = "0000" (0) -> Output Excess-3 = 0000 + 0011 = "0011" (3)
+- Input BCD = "0101" (5) -> Output Excess-3 = 0101 + 0011 = "1000" (8)
+- Input BCD = "1001" (9) -> Output Excess-3 = 1001 + 0011 = "1100" (12)
+
+VHDL CODES
+----------
+
+1. BCD to Excess-3 Design File (bcd_to_xs3.vhd)
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+entity BCD_TO_XS3 is
+    port (
+        BCD : in  std_logic_vector(3 downto 0); -- BCD input (0-9)
+        XS3 : out std_logic_vector(3 downto 0)  -- Excess-3 output
+    );
+end entity BCD_TO_XS3;
+
+architecture Behavioral of BCD_TO_XS3 is
+begin
+    process(BCD)
+    begin
+        -- Add 3 to BCD input
+        XS3 <= std_logic_vector(unsigned(BCD) + 3);
+    end process;
+end architecture Behavioral;
+
+2. Testbench File (bcd_xs3_tb.vhd)
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity BCD_XS3_TB is
+end entity BCD_XS3_TB;
+
+architecture Simulation of BCD_XS3_TB is
+    signal BCD : std_logic_vector(3 downto 0) := "0000";
+    signal XS3 : std_logic_vector(3 downto 0);
+begin
+
+    DUT : entity work.BCD_TO_XS3 
+        port map ( 
+            BCD => BCD, 
+            XS3 => XS3 
+        );
+
+    STIMULUS : process
+    begin
+        BCD <= "0000"; wait for 10 ns; -- 0 -> 0011
+        BCD <= "0001"; wait for 10 ns; -- 1 -> 0100
+        BCD <= "0101"; wait for 10 ns; -- 5 -> 1000
+        BCD <= "1001"; wait for 10 ns; -- 9 -> 1100
+        wait;
+    end process;
+
+end architecture Simulation;
+
+DISCUSSION
+----------
+In this experiment, a BCD to Excess-3 Code Converter was successfully designed in VHDL and simulated using GHDL. The design utilizes behavioral modeling with a process block that monitors changes on the BCD input vector. The conversion logic is achieved by casting the BCD vector to an unsigned integer format using the IEEE.NUMERIC_STD library, performing arithmetic addition with a constant value of 3, and then casting the result back to std_logic_vector.
+
+The testbench systematically evaluated multiple BCD input values: 0 ("0000"), 1 ("0001"), 5 ("0101"), and 9 ("1001"). The simulation output matched the theoretical truth table, verifying the correctness of the logical design.
+
+CONCLUSION
+----------
+The BCD to Excess-3 Converter was successfully implemented, simulated, and verified in VHDL. The simulation waveforms confirmed that the conversion logic generates the correct Excess-3 output for all simulated input states. This lab helped in understanding arithmetic combinational circuits and vector-based operations in VHDL.

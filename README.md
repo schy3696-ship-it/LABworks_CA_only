@@ -17,6 +17,7 @@ Each lab is structured in its own directory with design files (`.vhd`), testbenc
 | **Lab 3** | Combinational Circuits | 4-to-2 Priority Encoder & 2-to-4 Decoder | [`LAB3`](LAB3) |
 | **Lab 4** | Routing Combinational Circuits | 4-to-1 Multiplexer & 1-to-4 Demultiplexer | [`LAB4`](LAB4) |
 | **Lab 5** | Arithmetic Combinational Circuits | 2-bit Magnitude Comparator | [`LAB5`](LAB5) |
+| **Lab 6** | Code Converters | BCD-to-Excess-3 & Binary-to-Gray | [`Lab6`](Lab6) |
 
 ---
 
@@ -364,8 +365,61 @@ The following tools were used to compile and verify all designs:
 
 ---
 
+### Lab 6: Code Converters
+* **Objective:** Design combinational logic converter modules: a BCD to Excess-3 Converter and a 4-bit Binary to Gray Code Converter.
+* **BCD to Excess-3 Converter Design ([bcd_to_xs3.vhd](Lab6/BDC_EX3/bcd_to_xs3.vhd)):**
+  ```vhdl
+  library IEEE;
+  use IEEE.STD_LOGIC_1164.ALL;
+  use IEEE.NUMERIC_STD.ALL;
+
+  entity BCD_TO_XS3 is
+      port (
+          BCD : in  std_logic_vector(3 downto 0); -- BCD input (0-9)
+          XS3 : out std_logic_vector(3 downto 0)  -- Excess-3 output
+      );
+  end entity BCD_TO_XS3;
+
+  architecture Behavioral of BCD_TO_XS3 is
+  begin
+      process(BCD)
+      begin
+          XS3 <= std_logic_vector(unsigned(BCD) + 3);
+      end process;
+  end architecture Behavioral;
+  ```
+* **Binary to Gray Code Converter Design ([bin_to_gray.vhd](Lab6/BIN_GRAY/bin_to_gray.vhd)):**
+  ```vhdl
+  library IEEE;
+  use IEEE.STD_LOGIC_1164.ALL;
+
+  entity BIN_TO_GRAY is
+      port (
+          B : in std_logic_vector(3 downto 0);   -- 4 -bit binary input
+          G : out std_logic_vector(3 downto 0)   -- 4 -bit Gray code output
+      );
+  end entity BIN_TO_GRAY;
+
+  architecture Dataflow of BIN_TO_GRAY is
+  begin
+      G(3) <= B(3);               -- MSB stays the same
+      G(2) <= B(3) xor B(2);
+      G(1) <= B(2) xor B(1);
+      G(0) <= B(1) xor B(0);
+  end architecture Dataflow;
+  ```
+* **Simulation Result Waveforms:**
+  * **BCD to Excess-3 Converter:**
+    ![BCD to Excess-3 Waveform](Lab6/BDC_EX3/image.png)
+  * **Binary to Gray Code Converter:**
+    ![Binary to Gray Waveform](Lab6/BIN_GRAY/image.png)
+
+---
+
 ## Conclusion & Learnings
-Across these five laboratory exercises, the foundational flow of digital system design and hardware description using VHDL was fully explored:
+Across these six laboratory exercises, the foundational flow of digital system design and hardware description using VHDL was fully explored:
 1. **Behavioral vs. Dataflow Design:** Utilized both behavioral constructs (like `case` statements, variable concatenation, and sequential `if` branches inside `process` blocks) and direct dataflow models.
 2. **Standard and Numeric Libraries:** Transitioned from basic `bit` operations (Lab 2) to standard multi-level logic `std_logic` and arithmetic logic types (`unsigned` from `IEEE.NUMERIC_STD`) in magnitude comparison.
 3. **Simulation-Based Verification:** Established robust testbenches to assert the logical functions of combinational modules, confirming outputs against the mathematical truth tables through GTKWave inspection.
+4. **Code Conversions:** Explored representation mapping in BCD-to-Excess-3 arithmetic conversions and binary-to-Gray data encoding logic.
+
