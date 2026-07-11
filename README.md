@@ -18,6 +18,7 @@ Each lab is structured in its own directory with design files (`.vhd`), testbenc
 | **Lab 4** | Routing Combinational Circuits | 4-to-1 Multiplexer & 1-to-4 Demultiplexer | [`LAB4`](LAB4) |
 | **Lab 5** | Arithmetic Combinational Circuits | 2-bit Magnitude Comparator | [`LAB5`](LAB5) |
 | **Lab 6** | Code Converters | BCD-to-Excess-3 & Binary-to-Gray | [`Lab6`](Lab6) |
+| **Lab 7** | Sequential Circuits | SR, D, JK, and T Flip-Flops | [`LAB7`](LAB7) |
 
 ---
 
@@ -442,10 +443,65 @@ end architecture Simulation;
 
 ---
 
+### Lab 7: Sequential Circuits (Flip-Flops)
+* **Objective:** Design fundamental clock-edge triggered storage elements: SR, D, JK, and T Flip-Flops.
+* **SR Flip-Flop Design ([sr_ff.vhd](LAB7/sr_ff.vhd)):**
+  ```vhdl
+  entity SR_FF is
+      Port (
+          CLK : in STD_LOGIC;
+          S   : in STD_LOGIC;
+          R   : in STD_LOGIC;
+          Q   : out STD_LOGIC;
+          QB  : out STD_LOGIC
+      );
+  end entity SR_FF;
+  ```
+* **D Flip-Flop Design ([d_ff.vhd](LAB7/d_ff.vhd)):**
+  ```vhdl
+  entity D_FF is
+      Port (
+          CLK : in STD_LOGIC;
+          D   : in STD_LOGIC;
+          Q   : out STD_LOGIC;
+          QB  : out STD_LOGIC
+      );
+  end entity D_FF;
+  ```
+* **JK Flip-Flop Design ([jk_ff.vhd](LAB7/jk_ff.vhd)):**
+  ```vhdl
+  entity JK_FF is
+      Port (
+          CLK : in STD_LOGIC;
+          J   : in STD_LOGIC;
+          K   : in STD_LOGIC;
+          Q   : out STD_LOGIC;
+          QB  : out STD_LOGIC
+      );
+  end entity JK_FF;
+  ```
+* **T Flip-Flop Design ([t_ff.vhd](LAB7/t_ff.vhd)):**
+  ```vhdl
+  entity T_FF is
+      Port (
+          CLK : in STD_LOGIC;
+          T   : in STD_LOGIC;
+          Q   : out STD_LOGIC;
+          QB  : out STD_LOGIC
+      );
+  end entity T_FF;
+  ```
+
+* **Simulation Waveform:**
+  ![Sequential Circuits Waveform](LAB7/lab7.png)
+
+---
+
 ## Conclusion & Learnings
-Across these six laboratory exercises, the foundational flow of digital system design and hardware description using VHDL was fully explored:
+Across these seven laboratory exercises, the foundational flow of digital system design and hardware description using VHDL was fully explored:
 1. **Behavioral vs. Dataflow Design:** Utilized both behavioral constructs (like `case` statements, variable concatenation, and sequential `if` branches inside `process` blocks) and direct dataflow models.
 2. **Standard and Numeric Libraries:** Transitioned from basic `bit` operations (Lab 2) to standard multi-level logic `std_logic` and arithmetic logic types (`unsigned` from `IEEE.NUMERIC_STD`) in magnitude comparison.
-3. **Simulation-Based Verification:** Established robust testbenches to assert the logical functions of combinational modules, confirming outputs against the mathematical truth tables through GTKWave inspection.
+3. **Simulation-Based Verification:** Established robust testbenches to assert the logical functions of combinational and sequential modules, confirming outputs against their theoretical truth tables through GTKWave inspection.
 4. **Code Conversions:** Explored representation mapping in BCD-to-Excess-3 arithmetic conversions and binary-to-Gray data encoding logic.
+5. **Sequential Circuits & Clocking:** Designed and analyzed edge-triggered flip-flops (SR, D, JK, and T) to understand state retention, hold conditions, toggling, and synchronous behavior.
 

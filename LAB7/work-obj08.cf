@@ -1,0 +1,16 @@
+v 4
+file . "tb_flipflops.vhd" "e2e7857c638db187de745652530b14427dfbb9c3" "20260708170555.351":
+  entity tb_flipflops at 1( 0) + 0 on 19;
+  architecture simulation of tb_flipflops at 7( 93) + 0 on 20;
+file . "t_ff.vhd" "7a96b8efb00de5b1f7a9d9a340d27e84b112418b" "20260708170555.349":
+  entity t_ff at 1( 0) + 0 on 17;
+  architecture behavioral of t_ff at 13( 208) + 0 on 18;
+file . "jk_ff.vhd" "28686c325aad319670d1d981343cf74cf6bb8047" "20260708170555.348":
+  entity jk_ff at 1( 0) + 0 on 15;
+  architecture behavioral of jk_ff at 14( 238) + 0 on 16;
+file . "d_ff.vhd" "e45b43c8b2608d14db629e0b746f4b35862bba71" "20260708170555.348":
+  entity d_ff at 1( 0) + 0 on 13;
+  architecture behavioral of d_ff at 13( 208) + 0 on 14;
+file . "sr_ff.vhd" "2781d2a0799be569641b869d4072e9436d194a6b" "20260708170555.347":
+  entity sr_ff at 1( 0) + 0 on 11;
+  architecture behavioral of sr_ff at 14( 238) + 0 on 12;
