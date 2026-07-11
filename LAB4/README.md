@@ -161,6 +161,9 @@ begin
 end architecture Simulation;
 ```
 
+* **Simulation Waveform:**
+  ![4-to-1 Multiplexer Waveform](mux/mux.png)
+
 ---
 
 ### 2. 1-to-4 Demultiplexer (DEMUX)
@@ -266,6 +269,9 @@ begin
 
 end architecture Simulation;
 ```
+
+* **Simulation Waveform:**
+  ![1-to-4 Demultiplexer Waveform](demux/demux.png)
 
 ---
 

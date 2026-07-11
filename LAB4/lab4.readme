@@ -111,6 +111,15 @@ begin
 end architecture Behavioral;
 
 
+SIMULATION WAVEFORMS
+--------------------
+1. 4-to-1 Multiplexer (MUX)
+   ![4-to-1 Multiplexer Waveform](mux/mux.png)
+
+2. 1-to-4 Demultiplexer (DEMUX)
+   ![1-to-4 Demultiplexer Waveform](demux/demux.png)
+
+
 DISCUSSION
 ----------
 In this experiment, a 4-to-1 Multiplexer and a 1-to-4 Demultiplexer were successfully designed using VHDL and simulated using GHDL. The designs utilize behavioral modeling with a process and case statement to implement selection logic.
