@@ -296,6 +296,11 @@ The following tools were used to compile and verify all designs:
       end process;
   end architecture Behavioral;
   ```
+* **Simulation Result Waveforms:**
+  * **4-to-1 Multiplexer:**
+    ![4-to-1 Multiplexer Waveform](LAB4/mux/mux.png)
+  * **1-to-4 Demultiplexer:**
+    ![1-to-4 Demultiplexer Waveform](LAB4/demux/demux.png)
 
 ---
 
