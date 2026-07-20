@@ -1,0 +1,154 @@
+LAB 8: VHDL Code for Sequential Circuits: Counters
+
+OBJECTIVE
+---------
+1. To understand the operation of synchronous counters.
+2. To design and implement a 4-bit synchronous Up Counter and a 4-bit synchronous Up/Down Counter using VHDL.
+3. To simulate these sequential circuits using GHDL and verify their operation.
+4. To analyze simulation waveforms using GTKWave.
+
+THEORY
+------
+Synchronous Counter
+In a synchronous counter, all the flip-flops are clocked simultaneously by a common clock signal. This eliminates propagation delays (ripple effects) found in asynchronous counters, making synchronous counters faster and more reliable.
+
+1. 4-bit Synchronous Up Counter
+An up counter counts sequentially from "0000" (0) up to "1111" (15) and then rolls over to "0000" on the next clock pulse. The design features a synchronous active-high reset (RST) which clears the count to "0000" on the rising clock edge when asserted.
+
+2. 4-bit Synchronous Up/Down Counter
+An up/down counter is capable of counting in both directions depending on the value of a control input (UP).
+- When RST = '1', the counter synchronously resets to "0000".
+- When RST = '0' and UP = '1', the counter increments by 1 on each rising clock edge.
+- When RST = '0' and UP = '0', the counter decrements by 1 on each rising clock edge.
+
+
+VHDL CODES
+----------
+
+1. 4-bit Up Counter (counter_up.vhd)
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+entity COUNTER_UP is
+    port (
+        CLK   : in  std_logic;
+        RST   : in  std_logic;
+        COUNT : out std_logic_vector(3 downto 0)
+    );
+end entity COUNTER_UP;
+
+architecture Behavioral of COUNTER_UP is
+    signal count_int : unsigned(3 downto 0) := (others => '0');
+begin
+    process(CLK)
+    begin
+        if rising_edge(CLK) then
+            if RST = '1' then
+                count_int <= (others => '0');
+            else
+                count_int <= count_int + 1;
+            end if;
+        end if;
+    end process;
+
+    COUNT <= std_logic_vector(count_int);
+end architecture Behavioral;
+
+
+2. 4-bit Up/Down Counter (counter_updown.vhd)
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+entity COUNTER_UPDOWN is
+    port (
+        CLK   : in  std_logic;
+        RST   : in  std_logic;
+        UP    : in  std_logic;
+        COUNT : out std_logic_vector(3 downto 0)
+    );
+end entity COUNTER_UPDOWN;
+
+architecture Behavioral of COUNTER_UPDOWN is
+    signal count_int : unsigned(3 downto 0) := (others => '0');
+begin
+    process(CLK)
+    begin
+        if rising_edge(CLK) then
+            if RST = '1' then
+                count_int <= (others => '0');
+            elsif UP = '1' then
+                count_int <= count_int + 1;
+            else
+                count_int <= count_int - 1;
+            end if;
+        end if;
+    end process;
+
+    COUNT <= std_logic_vector(count_int);
+end architecture Behavioral;
+
+
+3. Unified Testbench (counter_tb.vhd)
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity COUNTER_TB is
+end entity COUNTER_TB;
+
+architecture Simulation of COUNTER_TB is
+    signal CLK      : std_logic := '0';
+    signal RST      : std_logic := '0';
+    signal UP       : std_logic := '1';
+    signal COUNT_UP : std_logic_vector(3 downto 0);
+    signal COUNT_UD : std_logic_vector(3 downto 0);
+    constant CLK_PERIOD : time := 20 ns;
+begin
+    CLK <= not CLK after CLK_PERIOD/2;
+
+    U1 : entity work.COUNTER_UP
+        port map(CLK => CLK, RST => RST, COUNT => COUNT_UP);
+
+    U2 : entity work.COUNTER_UPDOWN
+        port map(CLK => CLK, RST => RST, UP => UP, COUNT => COUNT_UD);
+
+    STIMULUS : process
+    begin
+        RST <= '1';
+        wait for 40 ns;
+        RST <= '0';
+        UP <= '1';
+        wait for 200 ns;
+        UP <= '0';
+        wait for 100 ns;
+        RST <= '1';
+        wait for 40 ns;
+        RST <= '0';
+        UP <= '1';
+        wait for 200 ns;
+        wait;
+    end process;
+end architecture Simulation;
+
+
+SIMULATION WAVEFORMS
+--------------------
+The simulation waveform is saved in the Value Change Dump format under:
+LAB8/simulation.vcd
+
+It can be analyzed using GTKWave by executing:
+gtkwave simulation.vcd
+
+
+DISCUSSION
+----------
+In this experiment, a 4-bit Synchronous Up Counter and a 4-bit Synchronous Up/Down Counter were successfully designed using VHDL and simulated using GHDL. The designs use behavioral VHDL description with process blocks sensitive to the rising edge of the clock (rising_edge(CLK)).
+
+The numeric_std library is utilized to declare counter registers as unsigned vectors, allowing arithmetic operations (+ and -) to perform count increments and decrements directly. Active-high synchronous reset is prioritized at the active clock edge to clear the counter to "0000".
+
+The simulation verified that the Up Counter successfully counts up sequentially. The Up/Down counter successfully counts up while the control input UP is high, counts down when UP is low, and resets synchronously when RST is high.
+
+CONCLUSION
+----------
+Synchronous Up and Up/Down counter circuits were successfully implemented in VHDL and verified using GHDL simulation. The waveforms demonstrated precise operation matching theoretical state progressions and control input transitions. This experiment enhanced our understanding of sequential design, synchronous control signals, clocking, and register operations using the numeric_std library in VHDL.
