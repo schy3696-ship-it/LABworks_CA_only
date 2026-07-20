@@ -19,6 +19,7 @@ Each lab is structured in its own directory with design files (`.vhd`), testbenc
 | **Lab 5** | Arithmetic Combinational Circuits | 2-bit Magnitude Comparator | [`LAB5`](LAB5) |
 | **Lab 6** | Code Converters | BCD-to-Excess-3 & Binary-to-Gray | [`Lab6`](Lab6) |
 | **Lab 7** | Sequential Circuits | SR, D, JK, and T Flip-Flops | [`LAB7`](LAB7) |
+| **Lab 8** | Sequential Circuits (Counters) | 4-bit Up & Up/Down Counters | [`LAB8`](LAB8) |
 
 ---
 
@@ -502,11 +503,123 @@ end architecture Simulation;
 
 ---
 
+### Lab 8: Sequential Circuits (Counters)
+* **Objective:** Design synchronous 4-bit Up and Up/Down counter circuits using behavioral VHDL modeling.
+* **Up Counter Design ([counter_up.vhd](LAB8/counter_up.vhd)):**
+  ```vhdl
+  library IEEE;
+  use IEEE.STD_LOGIC_1164.ALL;
+  use IEEE.NUMERIC_STD.ALL;
+
+  entity COUNTER_UP is
+      port (
+          CLK   : in  std_logic;
+          RST   : in  std_logic; -- Active-high synchronous reset
+          COUNT : out std_logic_vector(3 downto 0)
+      );
+  end entity COUNTER_UP;
+
+  architecture Behavioral of COUNTER_UP is
+      signal count_int : unsigned(3 downto 0) := (others => '0');
+  begin
+      process(CLK)
+      begin
+          if rising_edge(CLK) then
+              if RST = '1' then
+                  count_int <= (others => '0');
+              else
+                  count_int <= count_int + 1;
+              end if;
+          end if;
+      end process;
+
+      COUNT <= std_logic_vector(count_int);
+  end architecture Behavioral;
+  ```
+* **Up/Down Counter Design ([counter_updown.vhd](LAB8/counter_updown.vhd)):**
+  ```vhdl
+  library IEEE;
+  use IEEE.STD_LOGIC_1164.ALL;
+  use IEEE.NUMERIC_STD.ALL;
+
+  entity COUNTER_UPDOWN is
+      port (
+          CLK   : in  std_logic;
+          RST   : in  std_logic;
+          UP    : in  std_logic; -- '1' = Up, '0' = Down
+          COUNT : out std_logic_vector(3 downto 0)
+      );
+  end entity COUNTER_UPDOWN;
+
+  architecture Behavioral of COUNTER_UPDOWN is
+      signal count_int : unsigned(3 downto 0) := (others => '0');
+  begin
+      process(CLK)
+      begin
+          if rising_edge(CLK) then
+              if RST = '1' then
+                  count_int <= (others => '0');
+              elsif UP = '1' then
+                  count_int <= count_int + 1;
+              else
+                  count_int <= count_int - 1;
+              end if;
+          end if;
+      end process;
+
+      COUNT <= std_logic_vector(count_int);
+  end architecture Behavioral;
+  ```
+* **Unified Counter Testbench ([counter_tb.vhd](LAB8/counter_tb.vhd)):**
+  ```vhdl
+  library IEEE;
+  use IEEE.STD_LOGIC_1164.ALL;
+
+  entity COUNTER_TB is
+  end entity COUNTER_TB;
+
+  architecture Simulation of COUNTER_TB is
+      signal CLK      : std_logic := '0';
+      signal RST      : std_logic := '0';
+      signal UP       : std_logic := '1';
+      signal COUNT_UP : std_logic_vector(3 downto 0);
+      signal COUNT_UD : std_logic_vector(3 downto 0);
+      constant CLK_PERIOD : time := 20 ns;
+  begin
+      CLK <= not CLK after CLK_PERIOD/2;
+
+      U1 : entity work.COUNTER_UP
+          port map(CLK => CLK, RST => RST, COUNT => COUNT_UP);
+
+      U2 : entity work.COUNTER_UPDOWN
+          port map(CLK => CLK, RST => RST, UP => UP, COUNT => COUNT_UD);
+
+      STIMULUS : process
+      begin
+          RST <= '1';
+          wait for 40 ns;
+          RST <= '0';
+          UP <= '1';
+          wait for 200 ns;
+          UP <= '0';
+          wait for 100 ns;
+          RST <= '1';
+          wait for 40 ns;
+          RST <= '0';
+          UP <= '1';
+          wait for 200 ns;
+          wait;
+      end process;
+  end architecture Simulation;
+  ```
+
+---
+
 ## Conclusion & Learnings
-Across these seven laboratory exercises, the foundational flow of digital system design and hardware description using VHDL was fully explored:
+Across these eight laboratory exercises, the foundational flow of digital system design and hardware description using VHDL was fully explored:
 1. **Behavioral vs. Dataflow Design:** Utilized both behavioral constructs (like `case` statements, variable concatenation, and sequential `if` branches inside `process` blocks) and direct dataflow models.
 2. **Standard and Numeric Libraries:** Transitioned from basic `bit` operations (Lab 2) to standard multi-level logic `std_logic` and arithmetic logic types (`unsigned` from `IEEE.NUMERIC_STD`) in magnitude comparison.
 3. **Simulation-Based Verification:** Established robust testbenches to assert the logical functions of combinational and sequential modules, confirming outputs against their theoretical truth tables through GTKWave inspection.
 4. **Code Conversions:** Explored representation mapping in BCD-to-Excess-3 arithmetic conversions and binary-to-Gray data encoding logic.
-5. **Sequential Circuits & Clocking:** Designed and analyzed edge-triggered flip-flops (SR, D, JK, and T) to understand state retention, hold conditions, toggling, and synchronous behavior.
+5. **Sequential Circuits, Clocking, & Counters:** Designed and analyzed edge-triggered flip-flops (SR, D, JK, and T) and synchronous binary counters (Up and Up/Down) to understand state retention, hold conditions, toggling, direction control, and synchronous behavior.
 
