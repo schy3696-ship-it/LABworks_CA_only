@@ -612,6 +612,8 @@ end architecture Simulation;
       end process;
   end architecture Simulation;
   ```
+* **Simulation Waveform:**
+  ![Counters Waveform](LAB8/lab8.png)
 
 ---
 

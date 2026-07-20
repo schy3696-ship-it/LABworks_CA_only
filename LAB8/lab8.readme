@@ -140,6 +140,9 @@ LAB8/simulation.vcd
 It can be analyzed using GTKWave by executing:
 gtkwave simulation.vcd
 
+Waveform screenshot:
+![Counters Waveform](lab8.png)
+
 
 DISCUSSION
 ----------

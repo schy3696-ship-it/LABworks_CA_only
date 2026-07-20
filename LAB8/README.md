@@ -65,3 +65,9 @@ All files are located in the `LAB8` directory:
    ```powershell
    gtkwave simulation.vcd
    ```
+
+---
+
+## Simulation Waveform
+
+![Counters Waveform](lab8.png)
